@@ -1,15 +1,5 @@
 {
   "extends": [
-    "@rocketseat/eslint-config/node",
-    "prettier"
-  ],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": ["error", {
-      "semi": false,
-      "singleQuote": true,
-      "trailingComma": "es5",
-      "endOfLine": "auto"
-    }]
-  }
+    "@rocketseat/eslint-config/node"
+  ]
 }
