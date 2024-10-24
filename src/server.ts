@@ -1,6 +1,11 @@
 import fastify from 'fastify'
 import { knex } from './database'
 import { env } from './env'
+import {
+  serializerCompiler,
+  validatorCompiler,
+} from 'fastify-type-provider-zod'
+import { usersRoutes } from './routes/users.route'
 
 const app = fastify()
 
@@ -9,6 +14,11 @@ app.get('/hello', async () => {
 
   return tables
 })
+
+app.setValidatorCompiler(validatorCompiler)
+app.setSerializerCompiler(serializerCompiler)
+
+app.register(usersRoutes, { prefix: 'users' })
 
 app
   .listen({
